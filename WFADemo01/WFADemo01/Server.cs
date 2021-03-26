@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WFADemo01.FileHelper;
 
@@ -82,13 +75,7 @@ namespace WFADemo01
             // TxtServerAddContent();
             thread = new Thread(AcceptClientConnect);//启动一个线程接收请求 
             thread.Start(tcpListener);//启动线程 
-
- 
-
-
-                
   
-                
 
 
             }

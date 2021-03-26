@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WFADemo01
@@ -21,34 +14,9 @@ namespace WFADemo01
             InitializeComponent();
         }
         FileHelper.FileHelper fileHelper;
-        private TcpClient tcpClient;//声明 
-        private IPAddress iAdress;//IP地址 
         private const int port = 58080; //端口  
-        private NetworkStream networkStream;//网络流 
-        private BinaryReader binayRead;//读取 
-        private BinaryWriter binayWrite;//写入 
-                                        //private void ReMessage()
-                                        //{
-                                        //    while (true)
-                                        //    {
-                                        //        try
-                                        //        {
-                                        //            string rcMsg = binayRead.ReadString();//从网络流中读取数据 
-                                        //            if (rcMsg != null)
-                                        //            {
-                                        //                MessageBox.Show(rcMsg);
-                                        //            }
-                                        //            else
-                                        //            {
-                                        //                break;
-                                        //            }
-                                        //        }
-                                        //        catch
-                                        //        {
 
-        //        }
-        //    }
-        //}
+
 
         private IPEndPoint ipEndPoint;
         private Thread th;
@@ -196,16 +164,7 @@ namespace WFADemo01
                 textBoxFileRecv.Text = P_File_Folder.SelectedPath;
 
             }
-            //OpenFileDialog openFileDialog = new OpenFileDialog();
-            //openFileDialog.InitialDirectory = "c:\\";//注意这里写路径时要用c:\\而不是c:\
-            //openFileDialog.Filter = "文本文件|*.*|C#文件|*.cs|所有文件|*.*";
-            //openFileDialog.RestoreDirectory = true;
-            //openFileDialog.FilterIndex = 1;
-            //if (openFileDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    //String fName = openFileDialog.FileName;
-            //    textBoxFileRecv.Text = openFileDialog.FileName;
-            //}
+
         }
     }
 }
