@@ -75,12 +75,15 @@ namespace WFADemo01
                 if (stream != null)
                 {
 
-                  //  TxtClientAddContent("文件名字符流的长度为：" + fileNameLength);
+                    //  TxtClientAddContent("文件名字符流的长度为：" + fileNameLength);
 
                     //TxtClientAddContent("文件名为：" + fileName);
 
-
+                    String textBoxFileRecvPath = textBoxFileRecv.Text;
                     string dirPath = "C:\\WebFile\\";
+                    if (textBoxFileRecvPath != "") {
+                        dirPath = textBoxFileRecvPath + "\\";
+                    }
                     if (!Directory.Exists(dirPath))
                     {
                         Directory.CreateDirectory(dirPath);
@@ -88,6 +91,9 @@ namespace WFADemo01
 
                     fileHelper = new FileHelper.FileHelper();
                     bool isReceiveSuccess=fileHelper.ReceiveFile(dirPath, stream);
+                  //  progressBar_client.Maximum=(int)fileHelper.RecevieMaxLength;
+                  //  progressBar_client.Value = fileHelper.RecevieStatus;
+                    
                     if (isReceiveSuccess)
                     {
                         TxtClientAddContent("接收成功！！！");
@@ -105,9 +111,10 @@ namespace WFADemo01
         private void btn_client_Click(object sender, EventArgs e)
         {
             String textIp = textBoxIP.Text;
-            String textPort = textBoxPort.Text;
+            String textPort = textBoxPort1.Text;
+            
 
-            if(!string.IsNullOrEmpty(textIp) && !string.IsNullOrEmpty(textPort))
+            if (!string.IsNullOrEmpty(textIp) && !string.IsNullOrEmpty(textPort) )
             {
                  ipEndPoint = new IPEndPoint(IPAddress.Parse(textIp), Int32.Parse(textPort));//将网络端点表示为IP和端口号 
 
@@ -174,6 +181,31 @@ namespace WFADemo01
             {
                 richTextList.Text = txtValue + "\r\n" + richTextList.Text;
             }
+        }
+
+        private void btn_Select_Click(object sender, EventArgs e)
+        {
+
+
+            FolderBrowserDialog P_File_Folder = new FolderBrowserDialog();
+ 
+            if (P_File_Folder.ShowDialog() == DialogResult.OK)
+            {
+
+               // MessageBox.Show(P_File_Folder.SelectedPath);//选定目录后打印路径信息
+                textBoxFileRecv.Text = P_File_Folder.SelectedPath;
+
+            }
+            //OpenFileDialog openFileDialog = new OpenFileDialog();
+            //openFileDialog.InitialDirectory = "c:\\";//注意这里写路径时要用c:\\而不是c:\
+            //openFileDialog.Filter = "文本文件|*.*|C#文件|*.cs|所有文件|*.*";
+            //openFileDialog.RestoreDirectory = true;
+            //openFileDialog.FilterIndex = 1;
+            //if (openFileDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    //String fName = openFileDialog.FileName;
+            //    textBoxFileRecv.Text = openFileDialog.FileName;
+            //}
         }
     }
 }

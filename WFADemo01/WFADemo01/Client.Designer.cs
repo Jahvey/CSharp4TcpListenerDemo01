@@ -34,12 +34,17 @@
             this.richTextList = new System.Windows.Forms.RichTextBox();
             this.richTextContent = new System.Windows.Forms.RichTextBox();
             this.textBoxIP = new System.Windows.Forms.TextBox();
-            this.textBoxPort = new System.Windows.Forms.TextBox();
+            this.textBoxPort1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxFileRecv = new System.Windows.Forms.TextBox();
+            this.btn_Select = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.progressBar_client = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // btn_client
             // 
-            this.btn_client.Location = new System.Drawing.Point(453, 56);
+            this.btn_client.Location = new System.Drawing.Point(549, 21);
             this.btn_client.Name = "btn_client";
             this.btn_client.Size = new System.Drawing.Size(75, 23);
             this.btn_client.TabIndex = 0;
@@ -50,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(76, 61);
+            this.label1.Location = new System.Drawing.Point(76, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 1;
@@ -59,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(260, 61);
+            this.label2.Location = new System.Drawing.Point(260, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 12);
             this.label2.TabIndex = 2;
@@ -67,7 +72,7 @@
             // 
             // richTextList
             // 
-            this.richTextList.Location = new System.Drawing.Point(52, 105);
+            this.richTextList.Location = new System.Drawing.Point(52, 136);
             this.richTextList.Name = "richTextList";
             this.richTextList.Size = new System.Drawing.Size(130, 204);
             this.richTextList.TabIndex = 3;
@@ -75,7 +80,7 @@
             // 
             // richTextContent
             // 
-            this.richTextContent.Location = new System.Drawing.Point(188, 105);
+            this.richTextContent.Location = new System.Drawing.Point(188, 136);
             this.richTextContent.Name = "richTextContent";
             this.richTextContent.Size = new System.Drawing.Size(436, 204);
             this.richTextContent.TabIndex = 4;
@@ -83,24 +88,72 @@
             // 
             // textBoxIP
             // 
-            this.textBoxIP.Location = new System.Drawing.Point(123, 56);
+            this.textBoxIP.Location = new System.Drawing.Point(123, 19);
             this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.Size = new System.Drawing.Size(120, 21);
             this.textBoxIP.TabIndex = 5;
             // 
-            // textBoxPort
+            // textBoxPort1
             // 
-            this.textBoxPort.Location = new System.Drawing.Point(305, 58);
-            this.textBoxPort.Name = "textBoxPort";
-            this.textBoxPort.Size = new System.Drawing.Size(120, 21);
-            this.textBoxPort.TabIndex = 6;
+            this.textBoxPort1.Location = new System.Drawing.Point(305, 21);
+            this.textBoxPort1.Name = "textBoxPort1";
+            this.textBoxPort1.Size = new System.Drawing.Size(120, 21);
+            this.textBoxPort1.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(40, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "存放文件路径";
+            // 
+            // textBoxFileRecv
+            // 
+            this.textBoxFileRecv.Location = new System.Drawing.Point(123, 65);
+            this.textBoxFileRecv.Name = "textBoxFileRecv";
+            this.textBoxFileRecv.ReadOnly = true;
+            this.textBoxFileRecv.Size = new System.Drawing.Size(382, 21);
+            this.textBoxFileRecv.TabIndex = 8;
+            // 
+            // btn_Select
+            // 
+            this.btn_Select.Location = new System.Drawing.Point(549, 65);
+            this.btn_Select.Name = "btn_Select";
+            this.btn_Select.Size = new System.Drawing.Size(75, 23);
+            this.btn_Select.TabIndex = 9;
+            this.btn_Select.Text = "选择文件";
+            this.btn_Select.UseVisualStyleBackColor = true;
+            this.btn_Select.Click += new System.EventHandler(this.btn_Select_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(52, 103);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "传输进度条";
+            // 
+            // progressBar_client
+            // 
+            this.progressBar_client.Location = new System.Drawing.Point(123, 103);
+            this.progressBar_client.Name = "progressBar_client";
+            this.progressBar_client.Size = new System.Drawing.Size(382, 23);
+            this.progressBar_client.TabIndex = 11;
             // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 382);
-            this.Controls.Add(this.textBoxPort);
+            this.Controls.Add(this.progressBar_client);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btn_Select);
+            this.Controls.Add(this.textBoxFileRecv);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxPort1);
             this.Controls.Add(this.textBoxIP);
             this.Controls.Add(this.richTextContent);
             this.Controls.Add(this.richTextList);
@@ -123,6 +176,11 @@
         private System.Windows.Forms.RichTextBox richTextList;
         private System.Windows.Forms.RichTextBox richTextContent;
         private System.Windows.Forms.TextBox textBoxIP;
-        private System.Windows.Forms.TextBox textBoxPort;
+        private System.Windows.Forms.TextBox textBoxPort1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxFileRecv;
+        private System.Windows.Forms.Button btn_Select;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ProgressBar progressBar_client;
     }
 }

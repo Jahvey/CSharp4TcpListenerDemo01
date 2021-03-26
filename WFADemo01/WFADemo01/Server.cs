@@ -66,13 +66,28 @@ namespace WFADemo01
             if (!string.IsNullOrEmpty(textBox_filepath))
             {
                 btn_server.Enabled = false;
+                //获取监听端口的值
+                String textPort = textBoxPort.Text;
 
-                tcpListener = new TcpListener(IPAddress.Any, port);//创建TcpListener对象 
-                tcpListener.Start();//开始监听 
-                richTextContent.Text = "服务器开始监听....";
-               // TxtServerAddContent();
-                 thread = new Thread(AcceptClientConnect);//启动一个线程接收请求 
-                thread.Start(tcpListener);//启动线程 
+                if (textPort == "") {
+                    textPort = port + "";
+
+                }
+
+            //是数字
+
+            tcpListener = new TcpListener(IPAddress.Any, Int32.Parse(textPort));//创建TcpListener对象 
+            tcpListener.Start();//开始监听 
+            richTextContent.Text = "服务器开始监听...." + textPort + "端口";
+            // TxtServerAddContent();
+            thread = new Thread(AcceptClientConnect);//启动一个线程接收请求 
+            thread.Start(tcpListener);//启动线程 
+
+ 
+
+
+                
+  
                 
 
 

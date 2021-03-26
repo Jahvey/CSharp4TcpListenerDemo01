@@ -1,4 +1,6 @@
-﻿namespace WFADemo01
+﻿using System.Windows.Forms;
+
+namespace WFADemo01
 {
     partial class Server
     {
@@ -34,6 +36,8 @@
             this.btn_server = new System.Windows.Forms.Button();
             this.btn_selectFile = new System.Windows.Forms.Button();
             this.textBox_filelocation = new System.Windows.Forms.TextBox();
+            this.textBoxPort = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // richTextContent
@@ -55,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 62);
+            this.label1.Location = new System.Drawing.Point(34, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 8;
@@ -63,7 +67,7 @@
             // 
             // btn_server
             // 
-            this.btn_server.Location = new System.Drawing.Point(496, 57);
+            this.btn_server.Location = new System.Drawing.Point(499, 63);
             this.btn_server.Name = "btn_server";
             this.btn_server.Size = new System.Drawing.Size(75, 23);
             this.btn_server.TabIndex = 7;
@@ -73,7 +77,7 @@
             // 
             // btn_selectFile
             // 
-            this.btn_selectFile.Location = new System.Drawing.Point(367, 56);
+            this.btn_selectFile.Location = new System.Drawing.Point(499, 23);
             this.btn_selectFile.Name = "btn_selectFile";
             this.btn_selectFile.Size = new System.Drawing.Size(75, 23);
             this.btn_selectFile.TabIndex = 13;
@@ -83,17 +87,35 @@
             // 
             // textBox_filelocation
             // 
-            this.textBox_filelocation.Location = new System.Drawing.Point(121, 56);
+            this.textBox_filelocation.Location = new System.Drawing.Point(120, 25);
             this.textBox_filelocation.Name = "textBox_filelocation";
             this.textBox_filelocation.ReadOnly = true;
-            this.textBox_filelocation.Size = new System.Drawing.Size(208, 21);
+            this.textBox_filelocation.Size = new System.Drawing.Size(341, 21);
             this.textBox_filelocation.TabIndex = 14;
+            // 
+            // textBoxPort
+            // 
+            this.textBoxPort.Location = new System.Drawing.Point(120, 65);
+            this.textBoxPort.Name = "textBoxPort";
+            this.textBoxPort.Size = new System.Drawing.Size(100, 21);
+            this.textBoxPort.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(34, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "监听端口";
             // 
             // Server
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(630, 367);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxPort);
             this.Controls.Add(this.textBox_filelocation);
             this.Controls.Add(this.btn_selectFile);
             this.Controls.Add(this.richTextContent);
@@ -116,5 +138,8 @@
         private System.Windows.Forms.Button btn_server;
         private System.Windows.Forms.Button btn_selectFile;
         private System.Windows.Forms.TextBox textBox_filelocation;
+        private System.Windows.Forms.TextBox textPort;
+        private System.Windows.Forms.Label label2;
+        private TextBox textBoxPort;
     }
 }

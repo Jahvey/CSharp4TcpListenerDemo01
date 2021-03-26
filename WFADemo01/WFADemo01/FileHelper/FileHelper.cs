@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace WFADemo01.FileHelper
 {
@@ -13,6 +10,66 @@ namespace WFADemo01.FileHelper
     {
 
         private static readonly int _blockLength = 500 * 1024;
+
+        private static int sendStatus = 0;
+        private static int recevieStatus = 0;
+
+        private static long sendMaxLength = 0;
+        private static long recevieMaxLength = 0;
+
+        public  int SendStatus
+        {
+            get
+            {
+                return sendStatus;
+            }
+
+            set
+            {
+                sendStatus = value;
+            }
+        }
+
+        public  int RecevieStatus
+        {
+            get
+            {
+                return recevieStatus;
+            }
+
+            set
+            {
+                recevieStatus = value;
+            }
+        }
+
+        public  long SendMaxLength
+        {
+            get
+            {
+                return sendMaxLength;
+            }
+
+            set
+            {
+                sendMaxLength = value;
+            }
+        }
+
+        public  long RecevieMaxLength
+        {
+            get
+            {
+                return recevieMaxLength;
+            }
+
+            set
+            {
+                recevieMaxLength = value;
+            }
+        }
+
+
 
 
         /// <summary>
@@ -190,6 +247,9 @@ namespace WFADemo01.FileHelper
                 Directory.CreateDirectory(filePath);
             }
             FileStream fileStream = new FileStream(filePath + "\\" + fileName, FileMode.Create, FileAccess.Write);
+
+            recevieMaxLength=fileStream.Length;
+          
             try
             {
                 int fileReadSize = 0;
@@ -197,8 +257,10 @@ namespace WFADemo01.FileHelper
                 while ((fileReadSize = stream.Read(buffer, 0, buffer.Length)) > 0)
                 {
                     fileStream.Write(buffer, 0, fileReadSize);
+                    recevieStatus += fileReadSize;
 
                 }
+                
 
             }
             catch (Exception ex)
