@@ -115,7 +115,7 @@ namespace WFADemo01.FileHelper
             long fileLength = 0;
             while (fileLength < fileStrem.Length)
             {
-                byte[] buffer = new byte[204800];
+                byte[] buffer = new byte[1024*1024*500];
                 fileReadSize = fileStrem.Read(buffer, 0, buffer.Length);
                 stream.Write(buffer, 0, fileReadSize);
                 fileLength += fileReadSize;
@@ -139,7 +139,7 @@ namespace WFADemo01.FileHelper
         {
 
             byte[] fileNameLengthForValueByte = Encoding.Unicode.GetBytes((256).ToString("D11"));
-            byte[] fileNameLengByte = new byte[102400];
+            byte[] fileNameLengByte = new byte[1024 * 1024 * 500];
             int fileNameLengthSize = stream.Read(fileNameLengByte, 0, fileNameLengthForValueByte.Length);
             string fileNameLength = Encoding.Unicode.GetString(fileNameLengByte, 0, fileNameLengthSize);
            // TxtReceiveAddContent("文件名字符流的长度为：" + fileNameLength);
@@ -165,7 +165,7 @@ namespace WFADemo01.FileHelper
             try
             {
                 int fileReadSize = 0;
-                byte[] buffer = new byte[204800];
+                byte[] buffer = new byte[1024 * 1024 * 500];
                 while ((fileReadSize = stream.Read(buffer, 0, buffer.Length)) > 0)
                 {
                     fileStream.Write(buffer, 0, fileReadSize);
